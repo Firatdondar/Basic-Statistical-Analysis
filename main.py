@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def load_data(file_path):
     print(f"[*] Loading dataset from '{file_path}'...")
     try:
-        df = pd.read_csv(file_path, delim_whitespace=True)
+        df = pd.read_csv(file_path, sep=r'\s+')
         # Rename columns to standardized English formats
         df.columns = ['ID', 'MATH_SCORE', 'TURKISH_SCORE']
         return df
@@ -56,7 +56,7 @@ def generate_visualizations(df):
     print("[+] Visualizations successfully saved as 'score_distribution.png'.")
 
 if __name__ == "__main__":
-    dataset_path = 'veri_seti.txt'
+    dataset_path = 'data set.txt'
     
     student_data = load_data(dataset_path)
     calculate_descriptive_statistics(student_data)
